@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Visualization</title>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style>
+      
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      #network {
+        width: 100%;
+        height: 100%;
+        
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <h3>Planta de Situação - Grafo Não Direcionado</h3>
+    <div id="network"></div>
+
+    <script>
+      // Definição dos nós (pontos importantes da planta)
+      var nodes = new vis.DataSet([
+        { id: 1, label: 'LabD01', shape: 'circle' },
+        { id: 2, label: 'LabD02', shape: 'circle' },
+        { id: 3, label: 'LabD03', shape: 'circle' },
+        { id: 4, label: 'LabD04', shape: 'circle' },
+        { id: 5, label: 'LabD05', shape: 'circle' },
+        { id: 6, label: 'LabD06', shape: 'circle' },
+        { id: 7, label: 'LabD07', shape: 'circle' },
+        { id: 8, label: 'LabD08', shape: 'circle' },
+        { id: 9, label: 'Corredor 1', shape: 'circle' },
+        { id: 10, label: 'Entrada Principal', shape: 'circle' },
+        { id: 11, label: 'Refeitório', shape: 'circle' },
+        { id: 12, label: 'Guarita', shape: 'circle' },
+        { id: 13, label: 'Ginásio', shape: 'circle' },
+        { id: 14, label: 'Academia', shape: 'circle' },
+        { id: 15, label: 'Biblioteca', shape: 'circle' },
+        { id: 16, label: 'Administração', shape: 'circle' },
+        { id: 17, label: 'Auditório', shape: 'circle' },
+        { id: 18, label: 'Cantinha', shape: 'circle' },
+        { id: 19, label: 'Estacionamento', shape: 'circle' },
+        { id: 20, label: 'Lago', shape: 'circle' },
+        { id: 21, label: 'gabinetes dos professores', shape: 'circle' },
+        { id: 22, label: 'SalaF01', shape: 'circle' },
+        { id: 23, label: 'SalaF05', shape: 'circle' },
+        { id: 24, label: 'SalaF06', shape: 'circle' },
+        { id: 25, label: 'SalaF08', shape: 'circle' },
+
+      ]);
+
+      // Definição das arestas (conexões entre os nós) - sem setas
+      var edges = new vis.DataSet([
+        { from: 10, to: 17, label: '' },   
+        { from: 17, to: 20, label: '' }    
+      ]);
+
+      // Criação da rede (grafo)
+      var container = document.getElementById('network');
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+      var options = {
+        edges: {
+          arrows: { to: { enabled: false } },  // Remover setas
+          font: { align: 'middle' },
+          color: 'blue'
+        },
+        nodes: {
+          shape: 'circle',  // Alterar a forma para círculo
+          color: 'lightblue',
+          font: { color: 'black', size: 16 }
+        },
+        physics: {
+          enabled: false  // Desativar física para visualização estática
+        }
+      };
+
+      // Inicializando o grafo com os dados e opções
+      var network = new vis.Network(container, data, options);
+    </script>
+
+  </body>
+
+</html>

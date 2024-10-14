@@ -1,0 +1,86 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+.controls {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.controls p {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+button {
+  margin: 10px 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#mapWrapper {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+#campusMap {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#network {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  /* Certifique-se de que o grafo esteja acima da imagem */
+}
+
+.marker {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-color: blue;
+  border: 2px solid white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.marker.point1 {
+  background-color: green;
+}
+
+.marker.point2 {
+  background-color: red;
+}
+
+@media (max-width: 600px) {
+  #mapWrapper {
+    width: 100%;
+    height: auto;
+  }
+}
